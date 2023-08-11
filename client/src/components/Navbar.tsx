@@ -1,13 +1,28 @@
 import { Flex, Icon, Text } from "@chakra-ui/react";
 import { BiFace, BiMenu } from "react-icons/bi";
+import DrawerLeft from "./Drawer";
+import { useState } from "react";
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const onOpenDrawer = () => {
+    setIsOpen(true);
+  };
+
+  const onCloseDrawer = () => {
+    setIsOpen(false);
+  };
+
   return (
     <Flex
       bg={"brand.100"}
       align={"center"}
       justify={"center"}
       height={"60px"}
+      position={"absolute"}
+      width={"full"}
+      zIndex={100}
       px={10}
     >
       <Flex align={"center"} grow={1} gap={3}>
@@ -31,6 +46,7 @@ export default function Navbar() {
             padding: 1,
             borderRadius: 5,
           }}
+          fontWeight={"500"}
         >
           Home
         </Text>
@@ -42,6 +58,7 @@ export default function Navbar() {
             padding: 1,
             borderRadius: 5,
           }}
+          fontWeight={"500"}
         >
           About Me
         </Text>
@@ -53,6 +70,7 @@ export default function Navbar() {
             padding: 1,
             borderRadius: 5,
           }}
+          fontWeight={"500"}
         >
           Projects
         </Text>
@@ -64,6 +82,7 @@ export default function Navbar() {
             padding: 1,
             borderRadius: 5,
           }}
+          fontWeight={"500"}
         >
           Tech Stack
         </Text>
@@ -75,6 +94,7 @@ export default function Navbar() {
             padding: 1,
             borderRadius: 5,
           }}
+          fontWeight={"500"}
         >
           Blog
         </Text>
@@ -87,7 +107,9 @@ export default function Navbar() {
           color: "link.100",
         }}
         display={{ base: "unset", lg: "none" }}
+        onClick={onOpenDrawer}
       />
+      <DrawerLeft onClose={onCloseDrawer} isOpen={isOpen} />
     </Flex>
   );
 }
