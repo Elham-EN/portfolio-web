@@ -28,7 +28,7 @@ export default function Navbar() {
       align={"center"}
       justify={"center"}
       height={"60px"}
-      position={"absolute"}
+      position={"fixed"}
       width={"full"}
       zIndex={100}
       px={10}
@@ -55,7 +55,7 @@ export default function Navbar() {
               borderRadius: 5,
             }}
             fontWeight={"500"}
-            padding={"1px 5px"}
+            padding={"1px 3px"}
           >
             {link}
           </Text>

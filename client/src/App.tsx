@@ -10,6 +10,10 @@ const colors = {
   link: {
     100: "#ff006e",
   },
+  secondary: {
+    100: "#2b2d42",
+    200: "#001524",
+  },
 };
 
 const theme = extendTheme({ colors });
