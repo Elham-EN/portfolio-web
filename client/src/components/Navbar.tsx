@@ -14,6 +14,14 @@ export default function Navbar() {
     setIsOpen(false);
   };
 
+  const linksArr: string[] = [
+    "Home",
+    "About Me",
+    "Projects",
+    "Tech Stack",
+    "Contact Me",
+  ];
+
   return (
     <Flex
       bg={"brand.100"}
@@ -33,78 +41,34 @@ export default function Navbar() {
       </Flex>
       <Flex
         justify={"flex-end"}
-        gap={10}
+        gap={5}
         grow={1}
         fontSize={"16pt"}
         display={{ base: "none", lg: "flex" }}
       >
-        <Text
-          cursor={"pointer"}
-          _hover={{
-            color: "white",
-            bg: "link.100",
-            padding: 1,
-            borderRadius: 5,
-          }}
-          fontWeight={"500"}
-        >
-          Home
-        </Text>
-        <Text
-          cursor={"pointer"}
-          _hover={{
-            color: "white",
-            bg: "link.100",
-            padding: 1,
-            borderRadius: 5,
-          }}
-          fontWeight={"500"}
-        >
-          About Me
-        </Text>
-        <Text
-          cursor={"pointer"}
-          _hover={{
-            color: "white",
-            bg: "link.100",
-            padding: 1,
-            borderRadius: 5,
-          }}
-          fontWeight={"500"}
-        >
-          Projects
-        </Text>
-        <Text
-          cursor={"pointer"}
-          _hover={{
-            color: "white",
-            bg: "link.100",
-            padding: 1,
-            borderRadius: 5,
-          }}
-          fontWeight={"500"}
-        >
-          Tech Stack
-        </Text>
-        <Text
-          cursor={"pointer"}
-          _hover={{
-            color: "white",
-            bg: "link.100",
-            padding: 1,
-            borderRadius: 5,
-          }}
-          fontWeight={"500"}
-        >
-          Blog
-        </Text>
+        {linksArr.map((link) => (
+          <Text
+            cursor={"pointer"}
+            _hover={{
+              color: "white",
+              bg: "link.100",
+              borderRadius: 5,
+            }}
+            fontWeight={"500"}
+            padding={"1px 5px"}
+          >
+            {link}
+          </Text>
+        ))}
       </Flex>
       <Icon
         as={BiMenu}
         boxSize={"9"}
         cursor={"pointer"}
         _hover={{
-          color: "link.100",
+          bg: "link.100",
+          color: "white",
+          borderRadius: "5px",
         }}
         display={{ base: "unset", lg: "none" }}
         onClick={onOpenDrawer}

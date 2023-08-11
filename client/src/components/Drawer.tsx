@@ -20,73 +20,35 @@ interface DrawerProps {
 }
 
 function DrawerLeft({ isOpen, onClose }: DrawerProps): ReactElement {
+  const linksArr: string[] = [
+    "Home",
+    "About Me",
+    "Projects",
+    "Tech Stack",
+    "Contact Me",
+  ];
+
   return (
     <Drawer isOpen={isOpen} placement="top" onClose={onClose}>
       <DrawerOverlay />
       <DrawerContent bg={"brand.100"}>
-        <DrawerCloseButton />
+        <DrawerCloseButton _hover={{ bg: "link.100", color: "white" }} />
         <DrawerBody>
-          <Flex direction={"column"}>
-            <Text
-              padding={"2px 15px"}
-              cursor={"pointer"}
-              _hover={{
-                color: "white",
-                bg: "link.100",
-                borderRadius: 5,
-              }}
-              fontWeight={"500"}
-            >
-              Home
-            </Text>
-            <Text
-              padding={"2px 15px"}
-              cursor={"pointer"}
-              _hover={{
-                color: "white",
-                bg: "link.100",
-                borderRadius: 5,
-              }}
-              fontWeight={"500"}
-            >
-              About Me
-            </Text>
-            <Text
-              padding={"2px 15px"}
-              cursor={"pointer"}
-              _hover={{
-                color: "white",
-                bg: "link.100",
-                borderRadius: 5,
-              }}
-              fontWeight={"500"}
-            >
-              Projects
-            </Text>
-            <Text
-              padding={"2px 15px"}
-              cursor={"pointer"}
-              _hover={{
-                color: "white",
-                bg: "link.100",
-                borderRadius: 5,
-              }}
-              fontWeight={"500"}
-            >
-              Tech Stack
-            </Text>
-            <Text
-              padding={"2px 15px"}
-              cursor={"pointer"}
-              _hover={{
-                color: "white",
-                bg: "link.100",
-                borderRadius: 5,
-              }}
-              fontWeight={"500"}
-            >
-              Blog
-            </Text>
+          <Flex direction={"column"} width={"70%"}>
+            {linksArr.map((link) => (
+              <Text
+                cursor={"pointer"}
+                _hover={{
+                  color: "white",
+                  bg: "link.100",
+                  padding: 1,
+                  borderRadius: 5,
+                }}
+                fontWeight={"500"}
+              >
+                {link}
+              </Text>
+            ))}
           </Flex>
         </DrawerBody>
       </DrawerContent>
