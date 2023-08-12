@@ -1,5 +1,4 @@
 import { Flex } from "@chakra-ui/react";
-import { main_bg } from "../utils/variables";
 import Header from "../components/Header";
 import AboutMe from "../components/AboutMe";
 

@@ -1,14 +1,16 @@
 import { Button, Flex, Text } from "@chakra-ui/react";
 import Typed from "react-typed";
+import { smoothScroll } from "../utils/helpers";
 
 export default function Header() {
   return (
     <Flex
+      id="home"
       direction={"column"}
       width={"100%"}
       height={{ base: "80vh", sm: "90vh" }}
       m={"auto"}
-      marginTop={10}
+      marginTop={8}
     >
       <Flex
         direction={"column"}
@@ -99,13 +101,14 @@ export default function Header() {
           as a Full Stack Engineer
         </Text>
         <Button
-          as={"a"}
-          href="#about-me"
+          // as={"a"}
+          // href="#about-me"
           fontSize={{ base: "14pt", md: "16pt" }}
           size={"lg"}
           bg={"brand.100"}
           _hover={{ bg: "link.100", color: "white" }}
           mt={10}
+          onClick={() => smoothScroll("about-me")}
         >
           Get to Know me
         </Button>

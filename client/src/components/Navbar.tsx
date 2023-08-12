@@ -2,6 +2,7 @@ import { Flex, Icon, Text } from "@chakra-ui/react";
 import { BiFace, BiMenu } from "react-icons/bi";
 import DrawerLeft from "./Drawer";
 import { useState } from "react";
+import { smoothScroll, linksArr } from "../utils/helpers";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -13,14 +14,6 @@ export default function Navbar() {
   const onCloseDrawer = () => {
     setIsOpen(false);
   };
-
-  const linksArr: string[] = [
-    "Home",
-    "About Me",
-    "Projects",
-    "Tech Stack",
-    "Contact Me",
-  ];
 
   return (
     <Flex
@@ -48,6 +41,7 @@ export default function Navbar() {
       >
         {linksArr.map((link) => (
           <Text
+            key={link.id}
             cursor={"pointer"}
             _hover={{
               color: "white",
@@ -56,8 +50,9 @@ export default function Navbar() {
             }}
             fontWeight={"500"}
             padding={"1px 3px"}
+            onClick={() => smoothScroll(link.id)}
           >
-            {link}
+            {link.name}
           </Text>
         ))}
       </Flex>
