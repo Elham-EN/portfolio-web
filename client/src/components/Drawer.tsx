@@ -45,6 +45,7 @@ function DrawerLeft({ isOpen, onClose }: DrawerProps): ReactElement {
                   borderRadius: 5,
                 }}
                 fontWeight={"500"}
+                fontSize={"16pt"}
               >
                 {link}
               </Text>

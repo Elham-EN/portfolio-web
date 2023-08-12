@@ -3,6 +3,7 @@ import { Flex, Text } from "@chakra-ui/react";
 export default function AboutMe() {
   return (
     <Flex
+      id="about-me"
       direction={"column"}
       bg={"gray.300"}
       width={"95%"}

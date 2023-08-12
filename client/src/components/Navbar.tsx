@@ -36,7 +36,7 @@ export default function Navbar() {
       <Flex align={"center"} grow={1} gap={3}>
         <Icon as={BiFace} boxSize={"14"} />
         <Text fontSize={"16pt"} fontFamily={"monospace"} fontWeight={700}>
-          Elham's Portfolio
+          Elham
         </Text>
       </Flex>
       <Flex

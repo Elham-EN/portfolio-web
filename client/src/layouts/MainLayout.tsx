@@ -5,7 +5,12 @@ import AboutMe from "../components/AboutMe";
 
 export default function MainLayout() {
   return (
-    <Flex direction={"column"} p={10} bg={main_bg} height={"100%"}>
+    <Flex
+      direction={"column"}
+      p={3}
+      bgGradient="linear(to-r, #001d3d, #003566)"
+      height={"100%"}
+    >
       <Header />
       <AboutMe />
     </Flex>

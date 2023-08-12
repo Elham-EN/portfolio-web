@@ -1,12 +1,12 @@
-import { Flex, Text } from "@chakra-ui/react";
+import { Button, Flex, Text } from "@chakra-ui/react";
 import Typed from "react-typed";
 
 export default function Header() {
   return (
     <Flex
       direction={"column"}
-      width={"95%"}
-      height={"90vh"}
+      width={"100%"}
+      height={{ base: "80vh", sm: "90vh" }}
       m={"auto"}
       marginTop={10}
     >
@@ -19,13 +19,13 @@ export default function Header() {
       >
         <Text
           textAlign={"center"}
-          fontSize={{ base: "5xl", md: "6xl", lg: "8xl" }}
+          fontSize={{ base: "4xl", md: "5xl", lg: "8xl" }}
         >
           I am specialized in
         </Text>
         <Text
           textAlign={"center"}
-          fontSize={{ base: "5xl", md: "6xl", lg: "8xl" }}
+          fontSize={{ base: "4xl", md: "5xl", lg: "8xl" }}
         >
           <Typed
             strings={[
@@ -42,18 +42,18 @@ export default function Header() {
           />{" "}
         </Text>
         <Flex
-          direction={{ base: "column", xl: "row" }}
+          direction={{ base: "column", md: "row" }}
           gap={{ base: 1, xl: 5 }}
         >
           <Text
             textAlign={"center"}
-            fontSize={{ base: "5xl", md: "6xl", lg: "6xl" }}
+            fontSize={{ base: "4xl", lg: "4xl", xl: "6xl" }}
           >
-            I help tech startups to
+            I help businesses to
           </Text>
           <Text
             textAlign={"center"}
-            fontSize={{ base: "5xl", md: "6xl", lg: "6xl" }}
+            fontSize={{ base: "4xl", lg: "4xl", xl: "6xl" }}
           >
             <Typed
               strings={["launch", "optimize", "scale", "enhance"]}
@@ -65,7 +65,7 @@ export default function Header() {
           </Text>
           <Text
             textAlign={"center"}
-            fontSize={{ base: "5xl", md: "6xl", lg: "6xl" }}
+            fontSize={{ base: "4xl", lg: "4xl", xl: "6xl" }}
           >
             their product
           </Text>
@@ -74,16 +74,41 @@ export default function Header() {
           fontFamily={"sans-serif"}
           letterSpacing={1.5}
           lineHeight={1.8}
-          fontSize={{ base: "14pt", md: "16pt" }}
+          fontSize={{ base: "12pt", md: "14pt", lg: "16pt" }}
           textAlign={"center"}
           width={{ base: "90%", md: "60%" }}
           mt={10}
+          display={{ base: "none", md: "unset" }}
         >
-          I am a software engineer with more than four years of experience.
-          Recognized as a practical and effective developer, experienced in
-          leading cross-functional teams in a time-pressured setting to complete
-          projects on schedule and within budget.
+          From the first sketch of an idea to its final deployment, I navigate
+          both frontend landscapes and backend intricacies as a Full Stack
+          Engineer. Harnessing the power of diverse technologies, I bridge gaps
+          and craft comprehensive, seamless digital experiences
         </Text>
+        <Text
+          fontFamily={"sans-serif"}
+          letterSpacing={1.5}
+          lineHeight={1.8}
+          fontSize={{ base: "12pt", md: "16pt" }}
+          textAlign={"center"}
+          width={{ base: "90%", md: "60%" }}
+          mt={10}
+          display={{ base: "unset", md: "none" }}
+        >
+          From concept to code to cloud: crafting seamless digital experiences
+          as a Full Stack Engineer
+        </Text>
+        <Button
+          as={"a"}
+          href="#about-me"
+          fontSize={{ base: "14pt", md: "16pt" }}
+          size={"lg"}
+          bg={"brand.100"}
+          _hover={{ bg: "link.100", color: "white" }}
+          mt={10}
+        >
+          Get to Know me
+        </Button>
       </Flex>
     </Flex>
   );
