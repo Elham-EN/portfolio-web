@@ -1,21 +1,54 @@
 import { Button, Flex, Text } from "@chakra-ui/react";
 import Typed from "react-typed";
-import { smoothScroll } from "../utils/helpers";
+import { smoothScroll, ChakraBox, fadeIn } from "../utils/helpers";
+import { useEffect, useRef, useState } from "react";
 
 export default function Header() {
+  const [isInView, setIsInView] = useState(false);
+  const headerRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          // Trigger the animation here
+          setIsInView(true);
+        }
+      },
+      {
+        threshold: 0.1, // At least 10% of the element is in view
+      }
+    );
+
+    if (headerRef.current) {
+      observer.observe(headerRef.current);
+    }
+
+    return () => {
+      if (headerRef.current) {
+        observer.unobserve(headerRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <Flex
+    <ChakraBox
       id="home"
-      direction={"column"}
+      display={"flex"}
+      flexDirection={"column"}
       width={"100%"}
       height={{ base: "80vh", sm: "90vh" }}
       m={"auto"}
       marginTop={8}
+      variants={fadeIn}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      ref={headerRef}
     >
       <Flex
-        direction={"column"}
-        align={"center"}
-        justify={"center"}
+        flexDirection={"column"}
+        alignItems={"center"}
+        justifyContent={"center"}
         height={"full"}
         color={"white"}
       >
@@ -113,6 +146,6 @@ export default function Header() {
           Get to Know me
         </Button>
       </Flex>
-    </Flex>
+    </ChakraBox>
   );
 }

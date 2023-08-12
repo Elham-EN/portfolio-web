@@ -1,4 +1,15 @@
-import { animate } from "framer-motion";
+import { animate, motion, isValidMotionProp } from "framer-motion";
+import { chakra, shouldForwardProp } from "@chakra-ui/react";
+
+export const ChakraBox = chakra(motion.div, {
+  shouldForwardProp: (prop) =>
+    isValidMotionProp(prop) || shouldForwardProp(prop),
+});
+
+export const fadeIn = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 3 } },
+};
 
 export const smoothScroll = (target: string) => {
   const element = document.getElementById(target);
@@ -8,7 +19,7 @@ export const smoothScroll = (target: string) => {
     const top = element.getBoundingClientRect().top + window.scrollY;
     // smoothly scrolling the page to a specific position
     animate(window.scrollY, top, {
-      duration: 0.9,
+      duration: 0.5,
       onUpdate: (value) => window.scrollTo(0, value),
     });
   }
