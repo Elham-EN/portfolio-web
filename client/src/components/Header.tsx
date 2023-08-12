@@ -1,36 +1,8 @@
 import { Button, Flex, Text } from "@chakra-ui/react";
 import Typed from "react-typed";
-import { smoothScroll, ChakraBox, fadeIn } from "../utils/helpers";
-import { useEffect, useRef, useState } from "react";
+import { smoothScroll, ChakraBox, scaleVariants } from "../utils/helpers";
 
 export default function Header() {
-  const [isInView, setIsInView] = useState(false);
-  const headerRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          // Trigger the animation here
-          setIsInView(true);
-        }
-      },
-      {
-        threshold: 0.1, // At least 10% of the element is in view
-      }
-    );
-
-    if (headerRef.current) {
-      observer.observe(headerRef.current);
-    }
-
-    return () => {
-      if (headerRef.current) {
-        observer.unobserve(headerRef.current);
-      }
-    };
-  }, []);
-
   return (
     <ChakraBox
       id="home"
@@ -40,10 +12,8 @@ export default function Header() {
       height={{ base: "80vh", sm: "90vh" }}
       m={"auto"}
       marginTop={8}
-      variants={fadeIn}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      ref={headerRef}
+      variants={scaleVariants}
+      whileInView={scaleVariants.whileInView}
     >
       <Flex
         flexDirection={"column"}
@@ -109,9 +79,9 @@ export default function Header() {
           fontFamily={"sans-serif"}
           letterSpacing={1.5}
           lineHeight={1.8}
-          fontSize={{ base: "12pt", md: "14pt", lg: "16pt" }}
+          fontSize={{ base: "12pt", md: "14pt", lg: "14pt", xl: "18pt" }}
           textAlign={"center"}
-          width={{ base: "90%", md: "60%" }}
+          width={{ base: "90%", md: "90%", lg: "60%" }}
           mt={10}
           display={{ base: "none", md: "unset" }}
         >
